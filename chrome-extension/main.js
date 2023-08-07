@@ -62,7 +62,7 @@ chrome.tabs.query({ active: true, currentWindow: true }, async function (tabs) {
  * @param {string} url
  */
 const saveArticle = async (title, url) => {
-  await fetch(host + '/api/articles', {
+  await fetch(host + '/api/v1/articles', {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',

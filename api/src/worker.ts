@@ -12,9 +12,9 @@ app.get('/ping', (c) => {
   return c.text('pong');
 });
 
-const api = new Hono<{ Bindings: Bindings }>();
+const v1 = new Hono<{ Bindings: Bindings }>();
 
-api.put(
+v1.put(
   '/articles',
   validator('json', (value, c) => {
     const parsed = schema.safeParse(value);
@@ -35,5 +35,5 @@ api.put(
   }
 );
 
-app.route('/api', api);
+app.route('/api/v1', v1);
 export default app;
